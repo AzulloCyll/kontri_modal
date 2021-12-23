@@ -62,15 +62,21 @@
             }
         }
 
-        @media screen and (min-width: 576px) {
+        @media screen and (min-width: 979px) and (max-width: 1309px) {
+            .attention_modal .center {
+                width: 970px;
+            }
+        }
+
+        @media screen and (min-width: 1310px) {
             .attention_modal .center p {
                 width: 90%;
             }
         }
 
-        @media screen and (min-width: 971px) {
+        @media screen and (min-width: 1310px) {
             .attention_modal .center {
-                width: 970px;
+                width: 1280px;
             }
 
             .attention_modal .center p {
@@ -79,12 +85,13 @@
         }
 
         .attention_modal .center .x_button {
-            background-color: #ff5b77;
+            background-color: #e74011;
             width: 35px;
             height: 35px;
             border: 0;
             cursor: pointer;
             transition: all 0.3s;
+            border-radius: 5px;
         }
 
         .attention_modal .center .x_button:hover {
@@ -158,13 +165,6 @@
 
         if (getCookie("modal")) {
             modal.style.display = "none"
-        }
-
-        if (window.innerWidth < 757 && window.location.href === "https://www.wyprzedazebielizny.pl/" && !getCookie("modal")) {
-            modal.style.marginTop = "75px";
-            console.log("avaro SG");
-            const container = document.getElementsByClassName("main_page container")[0]
-            container.style.marginTop = "-50px"
         }
 
     </script>

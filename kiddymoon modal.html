@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        .attention_modal {
+            width: 100%;
+            position: static;
+            left: 0;
+            top: 0;
+            color: white;
+            text-align: center;
+            font-family: Lato;
+            font-size: 14px;
+            color: black;
+            background-color: lightgrey;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .attention_modal .center {
+            display: block;
+            margin: 0 auto;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            height: auto;
+        }
+
+        .attention_modal .center p {
+            width: 90%;
+            margin: 0;
+            padding: 0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        @media screen and (min-width: 0px) {
+
+            .attention_modal {
+                width: calc(100% + 30px);
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+
+            .attention_modal .center {
+                width: 100%;
+
+            }
+
+            .attention_modal .center p {
+                width: 85%;
+            }
+        }
+
+        @media screen and (min-width: 576px) {
+            .attention_modal .center p {
+                width: 90%;
+            }
+        }
+
+        @media screen and (min-width: 971px) {
+            .attention_modal .center {
+                width: 970px;
+            }
+
+            .attention_modal .center p {
+                width: 95%;
+            }
+        }
+
+        .attention_modal .center .x_button {
+            background-color: #89c6c9;
+            width: 35px;
+            height: 35px;
+            border: 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .attention_modal .center .x_button:hover {
+            background-color: black;
+            width: 35px;
+            height: 35px;
+            border: 0;
+
+        }
+
+        .attention_modal .center .x_button:after {
+            position: relative;
+            content: "\d7";
+            font-size: 25px;
+            color: white;
+            font-weight: bold;
+            top: 1px;
+        }
+
+        .fadeout {
+            opacity: 0;
+        }
+    </style>
+
+    <div class="attention_modal">
+        <div class="center">
+            <p><strong>Ważna informacja!</strong>
+                W dniach 30.12.2021-5.01.2022 w naszym magazynie odbędzie się inwentaryzacja.<br />Zamówienia złożone do
+                30.12.2021 do godz. 08:00 zostaną wysłane tego samego dnia. Wysyłkę wznowimy od 06.01.2022 w kolejności
+                zgłoszeń.</p>
+            <div class="x_button"></div>
+        </div>
+    </div>
+
+    <script>
+        const xButton = document.getElementsByClassName("x_button")[0]
+        const modal = document.getElementsByClassName("attention_modal")[0]
+        const body = document.body;
+        body.prepend(modal)
+
+        xButton.addEventListener("click", () => {
+            setCookie("modal", "closed", 1)
+            modal.classList.add("fadeout")
+            setTimeout(() => {
+                modal.style.display = "none"
+            }, 300);
+        })
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        if (getCookie("modal")) {
+            modal.style.display = "none"
+        }
+
+        if (window.innerWidth < 757 && window.location.href === "https://www.wyprzedazebielizny.pl/" && !getCookie("modal")) {
+            modal.style.marginTop = "75px";
+            console.log("avaro SG");
+            const container = document.getElementsByClassName("main_page container")[0]
+            container.style.marginTop = "-50px"
+        }
+
+    </script>
+
+</body>
+
+</html>

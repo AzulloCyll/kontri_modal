@@ -21,7 +21,7 @@
             font-family: Lato;
             font-size: 14px;
             color: black;
-            background-color: lightgrey;
+            background-color: #ebebeb;
             transition: all 0.3s;
             z-index: 1000;
         }
@@ -50,6 +50,7 @@
                 width: calc(100% + 30px);
                 margin-left: -15px;
                 margin-right: -15px;
+                font-size: 12px;
             }
 
             .attention_modal .center {
@@ -63,18 +64,21 @@
         }
 
         @media screen and (min-width: 979px) and (max-width: 1309px) {
+            .attention_modal {
+                font-size: 13px;
+
+            }
+
             .attention_modal .center {
                 width: 970px;
             }
         }
 
         @media screen and (min-width: 1310px) {
-            .attention_modal .center p {
-                width: 90%;
+            .attention_modal {
+                font-size: 14px;
             }
-        }
 
-        @media screen and (min-width: 1310px) {
             .attention_modal .center {
                 width: 1280px;
             }
@@ -119,9 +123,9 @@
     <div class="attention_modal">
         <div class="center">
             <p><strong>Ważna informacja!</strong>
-                W dniach 30.12.2021-5.01.2022 w naszym magazynie odbędzie się inwentaryzacja.<br />Zamówienia złożone do
-                30.12.2021 do godz. 08:00 zostaną wysłane tego samego dnia. Wysyłkę wznowimy od 06.01.2022 w kolejności
-                zgłoszeń.</p>
+                W dniach 30.12.2021-5.01.2022 w naszym magazynie odbędzie się inwentaryzacja. Zamówienia złożone do
+                30.12.2021 do godz. 08:00 zostaną wysłane tego samego dnia. Wysyłkę wznowimy od 10.01.2022 w kolejności
+                zgłoszeń. Za utrudnienia przepraszamy.</p>
             <div class="x_button"></div>
         </div>
     </div>
